@@ -7,17 +7,27 @@ const authEndpoint = 'https://oidc.sandbox.bankid.cz/auth';
 const userInfoEndpoint = 'https://oidc.sandbox.bankid.cz/userinfo';
 
 // Configuration of scopes from BankID dev portal
-const scopes = ['openid', 'profile.email'];
+const scopes = [
+  "profile.birthnumber",
+  "profile.verification",
+  "profile.legalstatus",
+  "openid",
+  "profile.addresses",
+  "profile.birthdate",
+  "profile.birthplaceNationality",
+  "profile.name",
+  "profile.idcards",
+];
 
 // Query parameters for the auth call
 const authUriParams = {
-  client_id: '0c53196f-fdba-4d27-84c0-a74e00e775b6',
+  client_id: '0f9e3a0e-17d6-4efb-82c2-3399bbd352fc',
   state: 'Optional state value you want to pass on',
   scope: scopes.join(' '),
   // Redirect URI to your application
-  redirect_uri: 'http://localhost:5000',
+  redirect_uri: 'http://localhost:3000/oidc/',
   // reponse_type 'token' for implicit flow
-  response_type: 'token',
+  response_type: 'code',
 };
 
 // Query parameters in URL query string format
